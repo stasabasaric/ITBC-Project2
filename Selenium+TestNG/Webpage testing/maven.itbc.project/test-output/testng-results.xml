@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="4" total="14" passed="10" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2020-05-12T21:34:48 CEST" name="Suite" finished-at="2020-05-12T21:36:22 CEST" duration-ms="93939">
+    <groups>
+    </groups>
+    <test started-at="2020-05-12T21:34:48 CEST" name="Test" finished-at="2020-05-12T21:36:22 CEST" duration-ms="93939">
+      <class name="login.LogInUserTest">
+        <test-method is-config="true" signature="User()[pri:0, instance:login.LogInUserTest@d4342c2]" started-at="2020-05-12T21:34:51 CEST" name="User" finished-at="2020-05-12T21:34:51 CEST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- User -->
+        <test-method signature="inputNameTest()[pri:0, instance:login.LogInUserTest@d4342c2]" started-at="2020-05-12T21:34:51 CEST" name="inputNameTest" finished-at="2020-05-12T21:34:51 CEST" duration-ms="133" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- inputNameTest -->
+        <test-method signature="inputPassTest()[pri:1, instance:login.LogInUserTest@d4342c2]" started-at="2020-05-12T21:34:51 CEST" name="inputPassTest" finished-at="2020-05-12T21:34:51 CEST" duration-ms="114" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- inputPassTest -->
+        <test-method signature="submitTest()[pri:2, instance:login.LogInUserTest@d4342c2]" started-at="2020-05-12T21:34:51 CEST" name="submitTest" finished-at="2020-05-12T21:34:59 CEST" duration-ms="7320" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- submitTest -->
+        <test-method signature="signOutTest()[pri:3, instance:login.LogInUserTest@d4342c2]" started-at="2020-05-12T21:34:59 CEST" name="signOutTest" finished-at="2020-05-12T21:35:02 CEST" duration-ms="3697" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- signOutTest -->
+      </class> <!-- login.LogInUserTest -->
+      <class name="products.ProductsTest">
+        <test-method is-config="true" signature="logIn()[pri:0, instance:products.ProductsTest@2bbf180e]" started-at="2020-05-12T21:35:02 CEST" name="logIn" finished-at="2020-05-12T21:35:10 CEST" duration-ms="7514" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logIn -->
+        <test-method signature="Add5ProductsTest()[pri:0, instance:products.ProductsTest@2bbf180e]" started-at="2020-05-12T21:35:10 CEST" name="Add5ProductsTest" finished-at="2020-05-12T21:36:03 CEST" duration-ms="53526" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Add5ProductsTest -->
+        <test-method signature="openEditPageTest()[pri:1, instance:products.ProductsTest@2bbf180e]" started-at="2020-05-12T21:36:03 CEST" name="openEditPageTest" finished-at="2020-05-12T21:36:09 CEST" duration-ms="5693" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openEditPageTest -->
+        <test-method signature="increasePricesTest()[pri:2, instance:products.ProductsTest@2bbf180e]" started-at="2020-05-12T21:36:09 CEST" name="increasePricesTest" finished-at="2020-05-12T21:36:10 CEST" duration-ms="632" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- increasePricesTest -->
+        <test-method signature="saveChangesTest()[pri:3, instance:products.ProductsTest@2bbf180e]" started-at="2020-05-12T21:36:10 CEST" name="saveChangesTest" finished-at="2020-05-12T21:36:12 CEST" duration-ms="2784" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- saveChangesTest -->
+        <test-method signature="DeleteAllProductsTest()[pri:4, instance:products.ProductsTest@2bbf180e]" started-at="2020-05-12T21:36:12 CEST" name="DeleteAllProductsTest" finished-at="2020-05-12T21:36:22 CEST" duration-ms="9465" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- DeleteAllProductsTest -->
+        <test-method is-config="true" signature="closeXL()[pri:0, instance:products.ProductsTest@2bbf180e]" started-at="2020-05-12T21:36:22 CEST" name="closeXL" finished-at="2020-05-12T21:36:22 CEST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeXL -->
+      </class> <!-- products.ProductsTest -->
+      <class name="login.LogUnregisteredUserTest">
+        <test-method is-config="true" signature="beforeSuite()[pri:0, instance:login.LogUnregisteredUserTest@4e91d63f]" started-at="2020-05-12T21:34:38 CEST" name="beforeSuite" finished-at="2020-05-12T21:34:48 CEST" duration-ms="9807" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeSuite -->
+        <test-method signature="UnRegLogTest()[pri:0, instance:login.LogUnregisteredUserTest@4e91d63f]" started-at="2020-05-12T21:34:48 CEST" name="UnRegLogTest" finished-at="2020-05-12T21:34:51 CEST" duration-ms="3010" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- UnRegLogTest -->
+        <test-method is-config="true" signature="afterSuite()[pri:0, instance:login.LogUnregisteredUserTest@4e91d63f]" started-at="2020-05-12T21:36:22 CEST" name="afterSuite" finished-at="2020-05-12T21:36:24 CEST" duration-ms="2094" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterSuite -->
+      </class> <!-- login.LogUnregisteredUserTest -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

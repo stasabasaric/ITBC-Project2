@@ -1,0 +1,29 @@
+SIGNUP_XPATH%//a[contains(text(),'Sign up')]
+REG_USERNAME_ID%username
+REG_EMAIL_ID%email
+REG_PASS_ID%password
+REG_CONFIRM_PASS_ID%confirm
+REG_ABOUT_ID%aboutyou
+REG_SUBMIT_ID%submit-button
+LOG_USERNAME_NAME%username
+LOG_PASS_ID%password
+LOG_SUBMIT_XPATH%//input[@class='btn blue']
+ACCOUNT_ID%account-avatar
+LOGOUT_ID%logout
+WEBSITE_URL_ID%website
+ACCOUNT_NAME_ID%v-username
+INCORRECT_USER_XPATH%//p[contains(text(),'Incorrect username or password.')]
+PRODUCTS_TAB_XPATH%//a[contains(text(),'Products')]
+ADD_PRODUCT_XPATH%//a[@class='context-btn add']
+PRODUCT_NAME_XPATH%//input[@name='name']
+PRODUCT_ID_NAME%vendor_product_id
+PRICE_NAME%price
+SAVE_NAME%submit
+UPDATE_SUCCESS_XPATH%//span[@class='form_valid large']
+EDIT_XPATH%//a[contains(text(),'Edit')]
+SAVE_CHANGES_XPATH%//input[@class='context-btn save']
+DELETE_CHECKBOX_NAME%product_id
+DELETE_SAVE_XPATH%//input[@class='context-btn remove']
+CONFIRM_DELETE_XPATH%//input[@name='submit']
+VIEW_PRODUCTS_XPATH%//a[contains(text(),'View')]
+NO_RECORDS_XPATH%//span[@class='form_invalid']
