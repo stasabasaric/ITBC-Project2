@@ -1,0 +1,3360 @@
+{
+	"info": {
+		"_postman_id": "80ab27fb-04f5-43c0-903e-7c530cba3c47",
+		"name": "MyAwesomeApp - testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authorization",
+			"item": [
+				{
+					"name": "/register",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "07a0ccdd-4c5b-4122-a515-1d00290b05fc",
+								"exec": [
+									"var resp = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 201\", function () {",
+									"",
+									"",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"pm.environment.set(\"regId\", resp.user._id);",
+									"pm.environment.set(\"regToken\", resp.token);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"Stasa\",\n\t\"email\":\"{{mail}}\",\n\t\"password\":\"Stasa123\"\n\t\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/register",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/registerExample",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\":\"Stasa\",\n\t\"email\":\"stasa.basaric@gmail.com\",\n\t\"password\":\"Stasa123\"\n\t\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/register",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 16 May 2020 11:48:39 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "518"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"206-ctrowhuImEhS+cyb+M67/aP7E/I\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "5944def4cab99710-FRA"
+								},
+								{
+									"key": "cf-request-id",
+									"value": "02bee9ad00000097101a971200000001"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"e372b1b2292d0d9e6ba452d2d8a3e5f58079b8342bd68cc76b7ad5c9e569f2c8a0135fcc033c038e2a12912749784dd864716b57bfd53fc5caa8ebe7551f35bdb62074b84effb654f18a30c33b917585be90d0c8af9cdef9dc184709f67ab30c2db5072e3dd8bf20eac97f4068cd7c99ccdb8ff9515c4539141b66ddf5ce75897576e14ada7b428e024f12dc214496d87a41c69a7b08c3cf1b999636b556c506248d81e83a878b6f040d9294b00220abce51702cf93a94cc5fde3f6dccc0bede\",\n    \"user\": {\n        \"_id\": \"5ebfd3177d2bb1079c93187a\",\n        \"name\": \"Stasa\",\n        \"email\": \"stasa.basaric@gmail.com\",\n        \"role\": \"user\",\n        \"verified\": false\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "/profile",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "58118c35-4f50-4a9f-bc97-ed8f00c9f6fb",
+								"exec": [
+									"var resp = pm.response.json();\r",
+									"\r",
+									"pm.environment.set(\"verif_id\", resp.verification);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{regToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/profile",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"profile"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/profileExample",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/profile",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"profile"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 16 May 2020 11:50:44 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"87-6oQH8UXn7jpYp6mVeXCEAepXHjk\""
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "5944e1fe9a7d9710-FRA"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "cf-request-id",
+									"value": "02beeb9321000097101aa19200000001"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"role\": \"user\",\n    \"verified\": false,\n    \"name\": \"Stasa\",\n    \"email\": \"stasa.basaric@gmail.com\",\n    \"verification\": \"002ace82-3efa-41b1-8a57-6073b635cad7\"\n}"
+						}
+					]
+				},
+				{
+					"name": "/verify",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "{{verif_id}}",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/verify",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"verify"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/verifyExample",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "id",
+											"value": "{{verif_id}}",
+											"type": "text"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/verify",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"verify"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 16 May 2020 11:51:17 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"33-nn7dB5NngpLjIT1eEcCiLpw6PVk\""
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "5944e2cd8c2a9710-FRA"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "cf-request-id",
+									"value": "02beec1477000097101aa3a200000001"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"email\": \"stasa.basaric@gmail.com\",\n    \"verified\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "/forgot",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "{{mail}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/forgot",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"forgot"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/forgotExample",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "stasa.basaric@gmail.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}/forgot",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"forgot"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 16 May 2020 11:52:02 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3c-j6ky5OEQ6wL3ZhfzvSyKCu7Vf4g\""
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "5944e3e698a29710-FRA"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "cf-request-id",
+									"value": "02beecc41f000097101aa6d200000001"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"RESET_EMAIL_SENT\",\n    \"email\": \"stasa.basaric@gmail.com\"\n}"
+						}
+					]
+				},
+				{
+					"name": "/reset",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "3f3071cf-90f0-4c7d-9062-79ca639b5b4d",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "stasa1234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/reset",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"reset"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/resetExample",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "id",
+											"value": "3f3071cf-90f0-4c7d-9062-79ca639b5b4d",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "stasa1234",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}/reset",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"reset"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 16 May 2020 11:53:13 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1a-8NMTb7T0mpAGXOVs0yAvyVZSkGQ\""
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "5944e5a13c249710-FRA"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "cf-request-id",
+									"value": "02beedd8c7000097101ab20200000001"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"PASSWORD_CHANGED\"\n}"
+						}
+					]
+				},
+				{
+					"name": "/login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9e66a903-26b1-4877-9c71-9f69f49f5383",
+								"exec": [
+									"var resp = pm.response.json();\r",
+									"pm.environment.set(\"adminToken\", resp.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "admin@admin.com\n",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/login",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/loginAdminExample",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "admin@admin.com\n",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12345",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}/login",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 16 May 2020 14:05:28 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"20c-jMCJgWzp0WnozaNAD0KJAlsPHII\""
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "5945a73dbc0fdfef-FRA"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "cf-request-id",
+									"value": "02bf66da930000dfefb4aee200000001"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"e372b1b2292d0d9e6ba452d2d8a3e5f58079b8342bd68cc76b7ad5c9e569f2c8a0135fcc033c038e2a12912749784dd8c5d31aa4e8513cad2ee5f858fb1458c23a5b88718035b2f16e56ba0a5220a5f5bf6606854d6b076be9a68610b2ced7a9f3124b7d04517e1c2a422d5dc0ee8e2942da1bdee28a65de75f6c3a64ddf3f84cf4a41b92b49f75a1993bb2efe9d51d9811c30d1b5b8d750c134fb92d023a35f2f2ebe3752d7f0823f947d3a7ca201ddc87b946199eaee827d871b31612418a2\",\n    \"user\": {\n        \"_id\": \"5aa1c2c35ef7a4e97b5e995a\",\n        \"name\": \"Super Administrator\",\n        \"email\": \"admin@admin.com\",\n        \"role\": \"admin\",\n        \"verified\": true\n    }\n}"
+						},
+						{
+							"name": "/loginExample",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "{{mail}}\n",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "stasa1234",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}/login",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 16 May 2020 11:59:50 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"205-vMzP+MTcMPFMgyBZL77Xsr00drM\""
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "5944ef56eb879710-FRA"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "cf-request-id",
+									"value": "02bef3ea4f000097101abbf200000001"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"e372b1b2292d0d9e6ba452d2d8a3e5f58079b8342bd68cc76b7ad5c9e569f2c8a0135fcc033c038e2a12912749784dd864716b57bfd53fc5caa8ebe7551f35bdb62074b84effb654f18a30c33b917585be90d0c8af9cdef9dc184709f67ab30ccc1af57314d4d09acafe527f6e25fd2948853446fb955ecf5c3f8777863e4da8cbed4582708dee42d12c00c40c9371813a7f24f4fa639520b7a00f27dfb10a6d7b77b647bf522b9bdca8ecec48d0a13b2b073cc2476e1c45f597a68a47529705\",\n    \"user\": {\n        \"_id\": \"5ebfd3177d2bb1079c93187a\",\n        \"name\": \"Stasa\",\n        \"email\": \"stasa.basaric@gmail.com\",\n        \"role\": \"user\",\n        \"verified\": true\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "/token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/token",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "City",
+			"item": [
+				{
+					"name": "/cities/all",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cities/all",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"all"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/cities/all Example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/cities/all",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"cities",
+										"all"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 17 May 2020 12:36:47 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"21c-xP6mTQjdFMEL8EkWdzhaxl7E/qI\""
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "594d62d1cac305e9-FRA"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "cf-request-id",
+									"value": "02c43c171f000005e9fbbd3200000001"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"5ec12e4ce9e4f674e169d1a9\",\n        \"name\": \"Barranquilla\"\n    },\n    {\n        \"_id\": \"5ec12e4ce9e4f674e169d1a3\",\n        \"name\": \"Bogotá\"\n    },\n    {\n        \"_id\": \"5ec12e4ce9e4f674e169d1a4\",\n        \"name\": \"Bucaramanga\"\n    },\n    {\n        \"_id\": \"5ec12e4ce9e4f674e169d1a8\",\n        \"name\": \"Cali\"\n    },\n    {\n        \"_id\": \"5ec12e4ce9e4f674e169d1a2\",\n        \"name\": \"Chicago\"\n    },\n    {\n        \"_id\": \"5ec12e4ce9e4f674e169d1a7\",\n        \"name\": \"Medellín\"\n    },\n    {\n        \"_id\": \"5ec12e4ce9e4f674e169d1a1\",\n        \"name\": \"New York\"\n    },\n    {\n        \"_id\": \"5ec12e4ce9e4f674e169d1a5\",\n        \"name\": \"Oakland\"\n    },\n    {\n        \"_id\": \"5ec12e4ce9e4f674e169d1a0\",\n        \"name\": \"San Francisco\"\n    },\n    {\n        \"_id\": \"5ec12e4ce9e4f674e169d1a6\",\n        \"name\": \"San Leandro\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "/cities?page=2&order=1",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cities?page=2&order=1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2"
+								},
+								{
+									"key": "order",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/cities?page=2&order=1 Example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/cities?page=2&order=1",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"cities"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "2"
+										},
+										{
+											"key": "order",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 17 May 2020 12:38:27 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"329-MeofifTESx6ZC57IGYkQcAUSY8E\""
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "594d65451cb105e9-FRA"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "cf-request-id",
+									"value": "02c43d9f30000005e9fb80c200000001"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"docs\": [\n        {\n            \"_id\": \"5ec12e4ce9e4f674e169d1a6\",\n            \"name\": \"San Leandro\",\n            \"createdAt\": \"2019-10-18T19:33:03.143Z\",\n            \"updatedAt\": \"2020-05-16T12:53:58.972Z\"\n        },\n        {\n            \"_id\": \"5ec12e4ce9e4f674e169d1a2\",\n            \"name\": \"Chicago\",\n            \"createdAt\": \"2019-11-07T12:46:06.199Z\",\n            \"updatedAt\": \"2020-05-16T18:39:35.231Z\"\n        },\n        {\n            \"_id\": \"5ec12e4ce9e4f674e169d1a0\",\n            \"name\": \"San Francisco\",\n            \"createdAt\": \"2020-02-08T07:04:15.597Z\",\n            \"updatedAt\": \"2020-05-17T09:07:51.875Z\"\n        },\n        {\n            \"_id\": \"5ec12e4ce9e4f674e169d1a5\",\n            \"name\": \"Oakland\",\n            \"createdAt\": \"2020-03-31T15:29:52.041Z\",\n            \"updatedAt\": \"2020-05-17T05:45:58.550Z\"\n        },\n        {\n            \"_id\": \"5ec12e4ce9e4f674e169d1a4\",\n            \"name\": \"Bucaramanga\",\n            \"createdAt\": \"2020-04-20T14:26:20.817Z\",\n            \"updatedAt\": \"2020-05-17T00:57:47.722Z\"\n        }\n    ],\n    \"totalDocs\": 10,\n    \"limit\": 5,\n    \"totalPages\": 2,\n    \"page\": 2,\n    \"pagingCounter\": 6,\n    \"hasPrevPage\": true,\n    \"hasNextPage\": false,\n    \"prevPage\": 1,\n    \"nextPage\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "/cities",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7b357232-63b2-4891-8718-63abc4724b91",
+								"exec": [
+									"var resp = pm.response.json();\r",
+									"\r",
+									"pm.environment.set(\"cityId\", resp._id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Beograd",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/cities",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/cities Example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Beograd",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}/cities",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"cities"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 17 May 2020 12:41:58 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "129"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"81-Df0jVlZgohHOotkFwGo8RIIhrHI\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "594d6a69499705e9-FRA"
+								},
+								{
+									"key": "cf-request-id",
+									"value": "02c440d5cf000005e9fb912200000001"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"5ec131164ec53672e9f7e99c\",\n    \"name\": \"Beograd\",\n    \"createdAt\": \"2020-05-17T12:41:58.062Z\",\n    \"updatedAt\": \"2020-05-17T12:41:58.062Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "/cities/{{cityId}}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cities/{{cityId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"{{cityId}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/cities/{{cityId}} Example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/cities/{{cityId}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"cities",
+										"{{cityId}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 17 May 2020 12:43:27 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"81-Df0jVlZgohHOotkFwGo8RIIhrHI\""
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "594d6c983b1205e9-FRA"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "cf-request-id",
+									"value": "02c4423324000005e9fb9de200000001"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"5ec131164ec53672e9f7e99c\",\n    \"name\": \"Beograd\",\n    \"createdAt\": \"2020-05-17T12:41:58.062Z\",\n    \"updatedAt\": \"2020-05-17T12:41:58.062Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "/cities/{{cityId}}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Tokyo",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/cities/{{cityId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"{{cityId}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/cities/{{cityId}} Example",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Tokyo",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}/cities/{{cityId}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"cities",
+										"{{cityId}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 17 May 2020 12:45:21 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7f-olpInimmkgRWmjOw0oMORfKZGWY\""
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "594d6f605f8205e9-FRA"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "cf-request-id",
+									"value": "02c443f039000005e9fb886200000001"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"5ec131164ec53672e9f7e99c\",\n    \"name\": \"Tokyo\",\n    \"createdAt\": \"2020-05-17T12:41:58.062Z\",\n    \"updatedAt\": \"2020-05-17T12:45:21.428Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "/cities/{{cityId}}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cities/{{cityId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"{{cityId}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "{{baseURL}}/cities/{{cityId}} Example",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/cities/{{cityId}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"cities",
+										"{{cityId}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 17 May 2020 12:46:39 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "17"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"11-1TLYp3hRJ+LTeGYiz9MECJYsCSc\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "594d7146d82e05e9-FRA"
+								},
+								{
+									"key": "cf-request-id",
+									"value": "02c4452045000005e9fbb96200000001"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"DELETED\"\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Profile",
+			"item": [
+				{
+					"name": "/profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/profile",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"profile"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/profile (2) Example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/profile",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"profile"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 16 May 2020 15:10:54 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"f5-1x7rFHmhkt9WoYyeiKaA6PQAUyk\""
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "59460738abe02488-FRA"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "cf-request-id",
+									"value": "02bfa2d76800002488d8192200000001"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"role\": \"user\",\n    \"verified\": true,\n    \"name\": \"Stasa\",\n    \"email\": \"user2@user.com\",\n    \"verification\": \"3d6e072c-0eaf-4239-bb5e-495e6486148f\",\n    \"city\": \"Belgrade\",\n    \"country\": \"Serbia\",\n    \"phone\": \"22345\",\n    \"urlTwitter\": \"http://albertha.org\",\n    \"urlGitHub\": \"https://mazie.net\"\n}"
+						}
+					]
+				},
+				{
+					"name": "/profile ",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Stasa Basaric",
+									"type": "text"
+								},
+								{
+									"key": "urlTwitter",
+									"value": "www.twitter.com/stasabasaric\n",
+									"type": "text"
+								},
+								{
+									"key": "urlGitHub",
+									"value": "www.github.com/stasa.basaric\n",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "2214552",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "Beograd",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "Srbija",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/profile",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"profile"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/profileExample",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Stasa Basaric",
+											"type": "text"
+										},
+										{
+											"key": "urlTwitter",
+											"value": "www.twitter.com/stasabasaric\n",
+											"type": "text"
+										},
+										{
+											"key": "urlGitHub",
+											"value": "www.github.com/stasa.basaric\n",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "2214552",
+											"type": "text"
+										},
+										{
+											"key": "city",
+											"value": "Beograd",
+											"type": "text"
+										},
+										{
+											"key": "country",
+											"value": "Srbija",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}/profile",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"profile"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 16 May 2020 15:14:09 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"104-UMMWdlatTTkE2Nhn3TDJnXCBKFA\""
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "59460bfa0bf42488-FRA"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "cf-request-id",
+									"value": "02bfa5d04600002488d8295200000001"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"verified\": true,\n    \"name\": \"Stasa Basaric\",\n    \"email\": \"user2@user.com\",\n    \"verification\": \"3d6e072c-0eaf-4239-bb5e-495e6486148f\",\n    \"city\": \"Beograd\",\n    \"country\": \"Srbija\",\n    \"phone\": \"2214552\",\n    \"urlTwitter\": \"www.twitter.com/stasabasaric\",\n    \"urlGitHub\": \"www.github.com/stasa.basaric\"\n}"
+						}
+					]
+				},
+				{
+					"name": "/profile/changePassword",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "oldPassword",
+									"value": "12345",
+									"type": "text"
+								},
+								{
+									"key": "newPassword",
+									"value": "stasa95",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/profile/changePassword",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"profile",
+								"changePassword"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/profile/changePasswordExample",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "oldPassword",
+											"value": "12345",
+											"type": "text"
+										},
+										{
+											"key": "newPassword",
+											"value": "stasa95",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}/profile/changePassword",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"profile",
+										"changePassword"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 16 May 2020 18:55:25 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1a-8NMTb7T0mpAGXOVs0yAvyVZSkGQ\""
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "594750146d5e3260-FRA"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "cf-request-id",
+									"value": "02c07060bd0000326022996200000001"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"PASSWORD_CHANGED\"\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "/users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d5a62624-8603-4273-8b29-388dd6e547c4",
+								"exec": [
+									"var arr = JSON.parse(responseBody).docs;\r",
+									"var ids = [];\r",
+									"\r",
+									"for (var i = 0; i<arr.length;i++) {\r",
+									"    ids.push(arr[i]._id);\r",
+									"}\r",
+									"\r",
+									"pm.environment.set(\"userIds\", JSON.stringify(ids));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/users?page=1&sort=city&order=1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "sort",
+									"value": "city"
+								},
+								{
+									"key": "order",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/usersExample",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/users?page=1&sort=city&order=1",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"users"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "sort",
+											"value": "city"
+										},
+										{
+											"key": "order",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 16 May 2020 14:06:19 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"482-icblfWLc8SRoast5sLMQBaOJyDU\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "5945a89b7cc3dfef-FRA"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "cf-request-id",
+									"value": "02bf67b52d0000dfefb4bd8200000001"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"docs\": [\n        {\n            \"_id\": \"5ebff3087d2bb1079c9318bc\",\n            \"role\": \"user\",\n            \"verified\": false,\n            \"name\": \"Travis Bickle\",\n            \"email\": \"bickle.travisbickle@gmail.com\",\n            \"verification\": \"c6c6b6df-5ce3-4b81-b6c8-27a634295863\",\n            \"createdAt\": \"2020-05-16T14:04:56.981Z\",\n            \"updatedAt\": \"2020-05-16T14:04:56.981Z\"\n        },\n        {\n            \"_id\": \"5aa1c2c35ef7a4e97b5e995a\",\n            \"name\": \"Super Administrator\",\n            \"email\": \"admin@admin.com\",\n            \"role\": \"admin\",\n            \"verified\": true,\n            \"verification\": \"3d6e072c-0eaf-4239-bb5e-495e6486148f\",\n            \"city\": \"Bucaramanga\",\n            \"country\": \"Colombia\",\n            \"phone\": \"12312566\",\n            \"urlTwitter\": \"http://ian.name\",\n            \"urlGitHub\": \"http://darion.net\",\n            \"createdAt\": \"2019-11-17T04:38:11.582Z\",\n            \"updatedAt\": \"2020-05-16T14:01:42.799Z\"\n        },\n        {\n            \"_id\": \"5aa1c2c35ef7a4e97b5e995b\",\n            \"name\": \"Simple user\",\n            \"email\": \"user@user.com\",\n            \"role\": \"user\",\n            \"verified\": true,\n            \"verification\": \"3d6e072c-0eaf-4239-bb5e-495e6486148d\",\n            \"city\": \"Bucaramanga\",\n            \"country\": \"Colombia\",\n            \"phone\": \"123123\",\n            \"urlTwitter\": \"https://jakayla.org\",\n            \"urlGitHub\": \"https://elena.net\",\n            \"createdAt\": \"2020-03-26T15:33:13.799Z\",\n            \"updatedAt\": \"2020-05-15T17:08:21.261Z\"\n        }\n    ],\n    \"totalDocs\": 3,\n    \"limit\": 5,\n    \"totalPages\": 1,\n    \"page\": 1,\n    \"pagingCounter\": 1,\n    \"hasPrevPage\": false,\n    \"hasNextPage\": false,\n    \"prevPage\": null,\n    \"nextPage\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "/users (create)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c83f671c-b7e4-4c8a-b7c8-51b01e323d1a",
+								"exec": [
+									"var resp = pm.response.json();\r",
+									"pm.environment.set(\"user_verif\", resp.verification);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Stasa",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "stasa@stasa21.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "user",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "33211521",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "Belgrade",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "Serbia",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/users",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "{{baseURL}}/usersExample (create)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Stasa",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "stasa@stasa.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12345",
+											"type": "text"
+										},
+										{
+											"key": "role",
+											"value": "user",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "33211521",
+											"type": "text"
+										},
+										{
+											"key": "city",
+											"value": "Belgrade",
+											"type": "text"
+										},
+										{
+											"key": "country",
+											"value": "Serbia",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}/users",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 16 May 2020 14:13:39 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "294"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"126-vXcgUcndYiZxlHrfxTlVfY01XcQ\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "5945b3574c83dfef-FRA"
+								},
+								{
+									"key": "cf-request-id",
+									"value": "02bf6e6a880000dfefb4a43200000001"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"role\": \"user\",\n    \"verified\": false,\n    \"_id\": \"5ebff5137d2bb1079c9318c3\",\n    \"name\": \"Stasa\",\n    \"email\": \"stasa@stasa.com\",\n    \"phone\": \"33211521\",\n    \"city\": \"Belgrade\",\n    \"country\": \"Serbia\",\n    \"verification\": \"794a3a71-42b2-4757-9777-3f32fb2be18a\",\n    \"createdAt\": \"2020-05-16T14:13:39.141Z\",\n    \"updatedAt\": \"2020-05-16T14:13:39.141Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "/users/userID",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "98abc1d7-d048-4156-9627-8c49bd88c52f",
+								"exec": [
+									"var ids = JSON.parse(pm.environment.get(\"userIds\"));\r",
+									"\r",
+									"pm.environment.set(\"randomUserId\", ids[1]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/{{randomUserId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"{{randomUserId}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/users/userID (deleted)",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/users/{{randomUserId}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"users",
+										"{{randomUserId}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 16 May 2020 14:39:50 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "17"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"11-1TLYp3hRJ+LTeGYiz9MECJYsCSc\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "5945d9b3987d05d4-FRA"
+								},
+								{
+									"key": "cf-request-id",
+									"value": "02bf866441000005d4831d5200000001"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"DELETED\"\n}"
+						}
+					]
+				},
+				{
+					"name": "/users (first user)",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "0b6ea029-3c5a-4b66-9e00-854ce98cd3d8",
+								"exec": [
+									"var ids = JSON.parse(pm.environment.get(\"userIds\"));\r",
+									"\r",
+									"pm.environment.set(\"randomUserId\", ids[0]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/users/{{randomUserId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"{{randomUserId}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/users (get first user)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/users/{{randomUserId}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"users",
+										"{{randomUserId}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 16 May 2020 14:53:44 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"126-foysfzFFgFmU23hWL+AnUE3RmvQ\""
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "5945ee117c91d6ed-FRA"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "cf-request-id",
+									"value": "02bf931eec0000d6edf0a28200000001"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"role\": \"user\",\n    \"verified\": false,\n    \"_id\": \"5ebffcdc7d2bb1079c9318e4\",\n    \"name\": \"Jelena\",\n    \"email\": \"user@user.com\",\n    \"phone\": \"123123123\",\n    \"city\": \"Belgrade\",\n    \"country\": \"Serbia\",\n    \"verification\": \"e77cc782-bb9c-416a-96ef-52dee839f3ff\",\n    \"createdAt\": \"2020-05-16T14:46:52.946Z\",\n    \"updatedAt\": \"2020-05-16T14:46:52.946Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "/users  (patch first user)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Stasa",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "user2@user.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "user",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "22345",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "Belgrade",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "Serbia",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/{{randomUserId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"{{randomUserId}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/users  (patch first user) EXAMPLE",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Stasa",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "user2@user.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12345",
+											"type": "text"
+										},
+										{
+											"key": "role",
+											"value": "user",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "22345",
+											"type": "text"
+										},
+										{
+											"key": "city",
+											"value": "Belgrade",
+											"type": "text"
+										},
+										{
+											"key": "country",
+											"value": "Serbia",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}/users/{{randomUserId}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"users",
+										"{{randomUserId}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 16 May 2020 15:00:53 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"164-mp+cPJ+3IXMQjhdU+sS7ZuYfmYE\""
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "5945f88b4bdfd6ed-FRA"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "cf-request-id",
+									"value": "02bf99ab0c0000d6edf0897200000001"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"role\": \"user\",\n    \"verified\": true,\n    \"_id\": \"5aa1c2c35ef7a4e97b5e995a\",\n    \"name\": \"Stasa\",\n    \"email\": \"user2@user.com\",\n    \"verification\": \"3d6e072c-0eaf-4239-bb5e-495e6486148f\",\n    \"city\": \"Belgrade\",\n    \"country\": \"Serbia\",\n    \"phone\": \"22345\",\n    \"urlTwitter\": \"http://albertha.org\",\n    \"urlGitHub\": \"https://mazie.net\",\n    \"createdAt\": \"2020-01-08T22:14:22.561Z\",\n    \"updatedAt\": \"2020-05-16T15:00:53.722Z\"\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
